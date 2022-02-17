@@ -1,34 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Esta é uma aplicação [Next.js](https://nextjs.org/) feita com [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+Nesta aplicação é possivel consumir a API restFull da marvel onde nela obtemos as informações de revistas em quadrinhos
 
-First, run the development server:
+## Fluxo de uso
+
+* O web app contem uma tela index onde nela e possivel ver os comics da Marvel podem realizar um filtro usando o titulo como parametro de consulta
+* Nos cards no qual mostra o resultado da consulta a API é possivel executar algumas ações, visitar detalhes do comic, ou favorita-lo
+* No appbar e possivel acessar a outra pagina disponivel na aplicação, que é a pagina de favoritos, nela listará os  comics marcados como favorito, podendo também remove-lo.
+
+## Iniciando o projeto
+
+Primeiro, clone o repositorio:
 
 ```bash
+git clone https://github.com/jardersilva/desafio_marvel_api.git
+```
+Depois  instale as dependências da aplicação:
+
+```bash
+npm install
+# ou
+yarn install
+```
+Em seguida execute a aplicação:
+```bash
 npm run dev
-# or
+# ou
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no seu browser para ver a aplicação rodando
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Estrutura do projeto
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Além da estrutura padrão do nextJS o projeto foi organizado da forma padrão com o destaque explicativo das pastas abaixo:
 
-## Learn More
+    assets/ # pasta com recursos visuais como por exemplo imagens
 
-To learn more about Next.js, take a look at the following resources:
+    components/  # pasta com componentes desenvolvido no projeto
+       Cards.tsx # Componente que mostra as informações do comics marvel
+	   Header.tsx # Componente da toolbar ou appbar
+	   Loading.tsx # Componente do efeito de loading enquanto e feita a requisição
+       NoConection.tsx #Componente para informar que o usuário está sem acesso a internet
+	   SearchBar.tsx #Componente da barra de consulta da aplicação
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    styles/  # Pasta com as estilizações da aplicação com os arquivos .css
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    utilites/
+       api.tsx  #Responsável por montar uma conexão com a api usando o axios
 
-## Deploy on Vercel
+## Bibliotecas utilizadas 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Axios -  oferece a capacidade de aproveitar o async e await do JavaScript para um código assíncrono mais legível. Também é possível interceptar e cancelar solicitações, e existe uma proteção integrada do lado do cliente contra a falsificação de solicitações entre sites.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* Material-UI (MUI React) - É  uma das populares bibliotecas de componentes React. Ele segue as diretrizes, componentes e ferramentas de material design do Google para tornar os aplicativos da web mais rápidos e agiliza o processo de desenvolvimento da aplicação.

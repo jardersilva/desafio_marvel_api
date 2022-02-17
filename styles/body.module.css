@@ -4,6 +4,7 @@
 
 .scrow {
   margin-top: 4em;
+  margin-left: -1em;
   width: 100%;
   display: flex;
   flex: 1;

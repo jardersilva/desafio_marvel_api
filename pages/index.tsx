@@ -22,6 +22,8 @@ const Home: NextPage = () => {
   const [isLoad, setLoading] = useState(true);
   const [isErro, setErro] = useState(false);
   const [comics, setComics] = useState([]);
+  const [comicsInit, setComicsInit] = useState([]); //Guarda o estado inicial dos objetos antes do filtro
+  const [text, setText] = useState("");
 
   useEffect(() => {
     getComics();
@@ -46,6 +48,7 @@ const Home: NextPage = () => {
       if (resposta.status === 200) {
         console.log("Result::", resposta.data.data.results);
         setComics(resposta.data.data.results);
+        setComicsInit(resposta.data.data.results);
         setLoading(false);
         setErro(false);
       } else {
@@ -58,10 +61,21 @@ const Home: NextPage = () => {
     }
   }
 
+  const handleChange = (e: React.FormEvent<HTMLInputElement>): void => {
+    setText(e.currentTarget.value);
+  };
+
   return (
     <div>
       <Header />
-      <SearchBar isLoading={isLoad} />
+      <SearchBar
+        isLoading={isLoad}
+        text={text}
+        changeText={handleChange}
+        onSearch={() => {
+          setText("s");
+        }}
+      />
       <div style={{ height: 15 }} />
       {corpo()}
     </div>
@@ -87,7 +101,7 @@ const Home: NextPage = () => {
             gutterBottom
             component="div"
           >
-            Resultado ({comics.length})
+            Resultado(s) ({comics.length})
           </Typography>
         </Stack>
         <div className={style.navigation}>

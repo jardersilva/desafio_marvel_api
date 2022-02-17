@@ -11,6 +11,9 @@ import DirectionsIcon from "@mui/icons-material/Directions";
 
 interface Propriedades {
   isLoading: boolean;
+  text: string;
+  changeText(event: React.FormEvent<HTMLInputElement>): void;
+  onSearch: Function;
 }
 
 export function SearchBar(props: Propriedades) {
@@ -37,9 +40,15 @@ export function SearchBar(props: Propriedades) {
           <InputBase
             sx={{ ml: 1, flex: 1 }}
             placeholder="Pesquisa"
-            inputProps={{ "aria-label": "search google maps" }}
+            value={props.text}
+            onChange={props.changeText}
+            inputProps={{ "aria-label": "" }}
           />
-          <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
+          <IconButton
+            onClick={props.onSearch}
+            sx={{ p: "10px" }}
+            aria-label="search"
+          >
             <SearchIcon />
           </IconButton>
         </Paper>
