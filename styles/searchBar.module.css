@@ -1,0 +1,21 @@
+.container{
+  margin: 0em;
+  width: 100%;
+  flex: 1;
+  padding-top: 8em;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-image: url('./../assets/back1.png');
+  padding-bottom: 3em;
+}
+
+.container2{
+  width: 80%;
+}
+
+.sub_title {
+  text-align: center;  
+  color: white;
+}
+
