@@ -91,9 +91,11 @@ const Home: NextPage = () => {
           </Typography>
         </Stack>
         <div className={style.navigation}>
-          <IconButton onClick={scrowRev}>
-            <KeyboardArrowLeftIcon className={style.text} />
-          </IconButton>
+          <div className={style.botao}>
+            <IconButton size="small" onClick={scrowRev}>
+              <KeyboardArrowLeftIcon className={style.icons} />
+            </IconButton>
+          </div>
           <div ref={scrollRef} className={style.scrow}>
             {comics.map((iten, x) => (
               <CardItem
@@ -104,9 +106,11 @@ const Home: NextPage = () => {
               />
             ))}
           </div>
-          <IconButton onClick={scrowAdd}>
-            <ChevronRightIcon className={style.text} />
-          </IconButton>
+          <div className={style.botao}>
+            <IconButton size="small" onClick={scrowAdd}>
+              <ChevronRightIcon className={style.icons} />
+            </IconButton>
+          </div>
         </div>
       </Container>
     );
