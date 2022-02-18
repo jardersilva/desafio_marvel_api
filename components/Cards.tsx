@@ -12,7 +12,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-import style from "./../styles/cardItem.module.css";
+import style from "./../styles/cardItem";
 
 interface Propriedades {
   imagem: string;
@@ -29,7 +29,7 @@ export function CardItem(props: Propriedades) {
   return (
     <Card
       sx={{ maxWidth: 200, minWidth: 200, maxHeight: 600 }}
-      className={style.card}
+      style={style.card}
     >
       <CardMedia
         component="img"
@@ -37,26 +37,22 @@ export function CardItem(props: Propriedades) {
         image={`${props.imagem}.${props.extension}`}
         alt={props.titulo}
       />
-      <CardContent className={style.content}>
-        <Typography variant="h6" component="div" className={style.title}>
-          {props.titulo}
+      <CardContent style={style.content}>
+        <Typography variant="h6" component="div" style={style.title}>
+          {props.titulo?.substr(0, 37)}
         </Typography>
         {/* <Typography variant="body2" color="text.secondary">
           Lizards are a widespread group of squamate reptiles, with over 6,000
           species, ranging across all continents except Antarctica
         </Typography> */}
       </CardContent>
-      <CardActions className={style.actions}>
-        <Button
-          className={style.actionsLabel}
-          size="small"
-          onClick={props.onClick}
-        >
+      <CardActions style={style.actions}>
+        <Button style={style.actionsLabel} size="small" onClick={props.onClick}>
           Abrir
         </Button>
         {props.isFavort ? (
           <IconButton
-            className={style.actionsIcon}
+            style={style.actionsIcon}
             size="large"
             aria-label="show 17 new notifications"
             color="inherit"
@@ -66,7 +62,7 @@ export function CardItem(props: Propriedades) {
           </IconButton>
         ) : (
           <IconButton
-            className={style.actionsIcon}
+            style={style.actionsIcon}
             size="large"
             aria-label="show 17 new notifications"
             color="inherit"

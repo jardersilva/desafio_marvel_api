@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import style from "./../styles/searchBar.module.css";
+import style from "./../styles/searchBar";
 import Modal from "@mui/material/Modal";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
@@ -70,19 +70,19 @@ export function BarTitle() {
   }
 
   return (
-    <div className={style.container}>
-      <div className={style.container2}>
+    <div style={style.container}>
+      <div style={style.container2}>
         <Typography
-          className={style.sub_title}
+          style={style.sub_title as React.CSSProperties}
           variant="h4"
           gutterBottom
           component="div"
         >
           Meus favoritos
         </Typography>
-        <div className={style.subContent}>
+        <div style={style.subContent}>
           <Button
-            className={style.botao}
+            style={style.botao}
             startIcon={<EmailIcon />}
             onClick={handleOpen}
           >
@@ -103,7 +103,7 @@ export function BarTitle() {
         aria-labelledby="keep-mounted-modal-title"
         aria-describedby="keep-mounted-modal-description"
       >
-        <div className={style.modal}>
+        <div style={style.modal as React.CSSProperties}>
           <Typography id="keep-mounted-modal-title" variant="h6" component="h2">
             Informe seu e-mail
           </Typography>

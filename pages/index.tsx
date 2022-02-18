@@ -10,7 +10,7 @@ import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
-import style from "./../styles/body.module.css";
+import style from "./../styles/body";
 import { CardLoading } from "./../components/Loading";
 import { NoConection } from "./../components/NoConection";
 import { CardItem } from "./../components/Cards";
@@ -175,7 +175,7 @@ const Home: NextPage = () => {
       <Container>
         <Stack spacing={1}>
           <Typography
-            className={style.text}
+            style={style.text}
             variant="subtitle1"
             gutterBottom
             component="div"
@@ -183,13 +183,13 @@ const Home: NextPage = () => {
             Resultado(s) ({comics.length})
           </Typography>
         </Stack>
-        <div className={style.navigation}>
-          <div className={style.botaoLeft}>
+        <div style={style.navigation}>
+          <div style={style.botaoLeft}>
             <IconButton size="small" onClick={scrowRev}>
-              <KeyboardArrowLeftIcon className={style.icons} />
+              <KeyboardArrowLeftIcon style={style.icons} />
             </IconButton>
           </div>
-          <div ref={scrollRef} className={style.scrow}>
+          <div ref={scrollRef} style={style.scrow as React.CSSProperties}>
             {comics.map((iten: Comics, x) => (
               <CardItem
                 key={x}
@@ -209,9 +209,9 @@ const Home: NextPage = () => {
               />
             ))}
           </div>
-          <div className={style.botaoRight}>
+          <div style={style.botaoRight}>
             <IconButton size="small" onClick={scrowAdd}>
-              <ChevronRightIcon className={style.icons} />
+              <ChevronRightIcon style={style.icons} />
             </IconButton>
           </div>
         </div>
@@ -223,9 +223,9 @@ const Home: NextPage = () => {
     return (
       <Container>
         <Stack spacing={1}>
-          <Skeleton className={style.loading} width={210} height={45} />
+          <Skeleton style={style.loading} width={210} height={45} />
         </Stack>
-        <div className={style.scrow}>
+        <div style={style.scrow as React.CSSProperties}>
           <CardLoading />
           <CardLoading />
           <CardLoading />

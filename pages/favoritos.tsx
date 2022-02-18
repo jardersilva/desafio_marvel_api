@@ -9,7 +9,7 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Container from "@mui/material/Container";
 import { CardItem } from "./../components/Cards";
-import style from "./../styles/body.module.css";
+import style from "./../styles/body";
 
 import { Comics } from "./../model/comics";
 
@@ -97,9 +97,9 @@ const Favoritos: NextPage = () => {
   function corpo() {
     return (
       <Container>
-        <Stack spacing={1} className={style.subTitle}>
+        <Stack spacing={1} style={style.subTitle as React.CSSProperties}>
           <Typography
-            className={style.text}
+            style={style.text}
             variant="subtitle1"
             gutterBottom
             component="div"
@@ -107,13 +107,13 @@ const Favoritos: NextPage = () => {
             Resultado(s) ({comics.length})
           </Typography>
         </Stack>
-        <div className={style.navigation}>
-          <div className={style.botaoLeft}>
+        <div style={style.navigation}>
+          <div style={style.botaoLeft}>
             <IconButton size="small" onClick={scrowRev}>
-              <KeyboardArrowLeftIcon className={style.icons} />
+              <KeyboardArrowLeftIcon style={style.icons} />
             </IconButton>
           </div>
-          <div ref={scrollRef} className={style.scrow}>
+          <div ref={scrollRef} style={style.scrow as React.CSSProperties}>
             {comics.map((iten: Comics, x) => (
               <CardItem
                 key={x}
@@ -131,9 +131,9 @@ const Favoritos: NextPage = () => {
               />
             ))}
           </div>
-          <div className={style.botaoRight}>
+          <div style={style.botaoRight as React.CSSProperties}>
             <IconButton size="small" onClick={scrowAdd}>
-              <ChevronRightIcon className={style.icons} />
+              <ChevronRightIcon style={style.icons} />
             </IconButton>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import style from "./../styles/searchBar.module.css";
+import style from "./../styles/searchBar";
 import Paper from "@mui/material/Paper";
 import InputBase from "@mui/material/InputBase";
 import Divider from "@mui/material/Divider";
@@ -19,10 +19,10 @@ interface Propriedades {
 
 export function SearchBar(props: Propriedades) {
   return (
-    <div className={style.container}>
-      <div className={style.container2}>
+    <div style={style.container}>
+      <div style={style.container2}>
         <Typography
-          className={style.sub_title}
+          style={style.sub_title as React.CSSProperties}
           variant="subtitle1"
           gutterBottom
           component="div"
