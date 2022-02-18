@@ -8,12 +8,13 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import DirectionsIcon from "@mui/icons-material/Directions";
+import { ChangeEvent } from "react";
 
 interface Propriedades {
   isLoading: boolean;
   text: string;
-  changeText(event: React.FormEvent<HTMLInputElement>): void;
-  onSearch: Function;
+  changeText(e: ChangeEvent<HTMLInputElement>): void;
+  onSearch(e: ChangeEvent<HTMLInputElement>): void;
 }
 
 export function SearchBar(props: Propriedades) {
@@ -30,6 +31,7 @@ export function SearchBar(props: Propriedades) {
           uma busca e navegue pelo titulo desejado, divirta-se
         </Typography>
         <Paper
+          component="form"
           sx={{
             p: "2px 4px",
             display: "flex",
@@ -43,11 +45,7 @@ export function SearchBar(props: Propriedades) {
             onChange={props.changeText}
             inputProps={{ "aria-label": "" }}
           />
-          <IconButton
-            onClick={props.onSearch}
-            sx={{ p: "10px" }}
-            aria-label="search"
-          >
+          <IconButton sx={{ p: "10px" }} aria-label="search">
             <SearchIcon />
           </IconButton>
         </Paper>

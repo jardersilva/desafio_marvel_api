@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, ChangeEvent } from "react";
 import type { NextPage } from "next";
 import { Header } from "./../components/Header";
 import { SearchBar } from "./../components/SearchBar";
@@ -17,25 +17,31 @@ import { CardItem } from "./../components/Cards";
 
 import api from "./../utilites/api";
 
+import { Comics } from "./../model/comics";
+
 const Home: NextPage = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
   const [isLoad, setLoading] = useState(true);
   const [isErro, setErro] = useState(false);
   const [comics, setComics] = useState([]);
   const [favorit, setFavorit] = useState([]);
   const [comicsInit, setComicsInit] = useState([]); //Guarda o estado inicial dos objetos antes do filtro
   const [text, setText] = useState("");
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     getComics();
   }, []);
 
   const scrowAdd = () => {
-    scrollRef.current.scrollLeft += 90;
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft += 90;
+    }
   };
 
   const scrowRev = () => {
-    scrollRef.current.scrollLeft -= 90;
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft -= 90;
+    }
   };
 
   const onActionCard = (iten: string) => {
@@ -75,17 +81,19 @@ const Home: NextPage = () => {
     }
   }
 
-  const handleChange = (e: React.FormEvent<HTMLInputElement>): void => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     var Lista_temporaria = comicsInit;
 
     setComics(
-      Lista_temporaria.filter((i) => i.title.includes(e.currentTarget.value))
+      Lista_temporaria.filter((i: Comics) =>
+        i.title.includes(e.currentTarget.value)
+      )
     );
 
     setText(e.currentTarget.value);
   };
 
-  const handleFavoritoADD = (iten) => {
+  const handleFavoritoADD = (iten: Comics) => {
     var favoritos = [];
 
     if (localStorage.getItem("@marvel_app/favoritos") === null) {
@@ -104,7 +112,7 @@ const Home: NextPage = () => {
     //console.log(localStorage.getItem("@marvel_app/favorito"));
   };
 
-  const handleFavoritoREM = (iten) => {
+  const handleFavoritoREM = (iten: Comics) => {
     var favoritos = [];
 
     if (localStorage.getItem("@marvel_app/favoritos") === null) {
@@ -127,9 +135,9 @@ const Home: NextPage = () => {
     //console.log(localStorage.getItem("@marvel_app/favorito"));
   };
 
-  function isFavorito(id: string) {
+  function isFavorito(id: number) {
     var temp = favorit;
-    var tamanho = temp.filter((i) => i.id === id).length;
+    var tamanho = temp.filter((i: Comics) => i.id === id).length;
     console.log("fff:: ", tamanho);
     if (tamanho > 0) {
       return true;
@@ -145,7 +153,7 @@ const Home: NextPage = () => {
         isLoading={isLoad}
         text={text}
         changeText={handleChange}
-        onSearch={() => {}}
+        onSearch={handleChange}
       />
       <div style={{ height: 15 }} />
       {corpo()}
@@ -182,7 +190,7 @@ const Home: NextPage = () => {
             </IconButton>
           </div>
           <div ref={scrollRef} className={style.scrow}>
-            {comics.map((iten, x) => (
+            {comics.map((iten: Comics, x) => (
               <CardItem
                 key={x}
                 imagem={iten.thumbnail.path}

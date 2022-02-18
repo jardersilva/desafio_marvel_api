@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import style from "./../styles/searchBar.module.css";
@@ -21,7 +21,7 @@ export function BarTitle() {
 
   const handleOpen = () => setOpen(true);
 
-  const handleChange = (e: React.FormEvent<HTMLInputElement>): void => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setText(e.currentTarget.value);
   };
 

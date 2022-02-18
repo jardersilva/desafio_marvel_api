@@ -10,8 +10,8 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Container from "@mui/material/Container";
 import { CardItem } from "./../components/Cards";
 import style from "./../styles/body.module.css";
-import Button from "@mui/material/Button";
-import EmailIcon from "@mui/icons-material/Email";
+
+import { Comics } from "./../model/comics";
 
 const Favoritos: NextPage = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -23,11 +23,15 @@ const Favoritos: NextPage = () => {
   }, []);
 
   const scrowAdd = () => {
-    scrollRef.current.scrollLeft += 90;
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft += 90;
+    }
   };
 
   const scrowRev = () => {
-    scrollRef.current.scrollLeft -= 90;
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft -= 90;
+    }
   };
 
   const onActionCard = (iten: string) => {
@@ -46,7 +50,7 @@ const Favoritos: NextPage = () => {
     setComics(favoritos);
   }
 
-  const handleFavoritoREM = (iten) => {
+  const handleFavoritoREM = (iten: Comics) => {
     var favoritos = [];
 
     if (localStorage.getItem("@marvel_app/favoritos") === null) {
@@ -70,9 +74,9 @@ const Favoritos: NextPage = () => {
     //console.log(localStorage.getItem("@marvel_app/favorito"));
   };
 
-  function isFavorito(id: string) {
+  function isFavorito(id: number) {
     var temp = comics;
-    var tamanho = temp.filter((i) => i.id === id).length;
+    var tamanho = temp.filter((i: Comics) => i.id === id).length;
     console.log("fff:: ", tamanho);
     if (tamanho > 0) {
       return true;
@@ -110,7 +114,7 @@ const Favoritos: NextPage = () => {
             </IconButton>
           </div>
           <div ref={scrollRef} className={style.scrow}>
-            {comics.map((iten, x) => (
+            {comics.map((iten: Comics, x) => (
               <CardItem
                 key={x}
                 imagem={iten.thumbnail.path}

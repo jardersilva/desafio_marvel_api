@@ -7,6 +7,11 @@ Nesta aplicação é possivel consumir a API restFull da marvel onde nela obtemo
 * O web app contem uma tela index onde nela e possivel ver os comics da Marvel podem realizar um filtro usando o titulo como parametro de consulta
 * Nos cards no qual mostra o resultado da consulta a API é possivel executar algumas ações, visitar detalhes do comic, ou favorita-lo
 * No appbar e possivel acessar a outra pagina disponivel na aplicação, que é a pagina de favoritos, nela listará os  comics marcados como favorito, podendo também remove-lo.
+* Ainda na pagina de favoritos e possivel enviar a lista de favoritos por e-mail, a aplicação irá solicitar ao usuário seu endereço de email.
+
+## Aplicação em produção
+
+[`Clique aqui para acessar `](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)
 
 ## Iniciando o projeto
 
@@ -49,9 +54,19 @@ Além da estrutura padrão do nextJS o projeto foi organizado da forma padrão c
 
     utilites/
        api.tsx  #Responsável por montar uma conexão com a api usando o axios
+	 
+	 pages/
+	 			api/ 
+					sendMail.js #API responsavel por receber as informações de e-mail e envia-lo para o usuário
+
+## Deploy
+
+Para o deploy em produção da aplicação foi utlizado o [`Vercel`](https://vercel.com/),  uma ferramenta gratuita e com grandes recursos, sobre ele recomendo a leitura desse artigo: [`Artigo`](https://medium.com/cwi-software/nextjs-%C3%A9-o-futuro-do-front-11ed7a01cc40)
 
 ## Bibliotecas utilizadas 
 
 * Axios -  oferece a capacidade de aproveitar o async e await do JavaScript para um código assíncrono mais legível. Também é possível interceptar e cancelar solicitações, e existe uma proteção integrada do lado do cliente contra a falsificação de solicitações entre sites.
 
 * Material-UI (MUI React) - É  uma das populares bibliotecas de componentes React. Ele segue as diretrizes, componentes e ferramentas de material design do Google para tornar os aplicativos da web mais rápidos e agiliza o processo de desenvolvimento da aplicação.
+
+* Nodemailer - Uma biblioteca poderosa para envio de e-mails com node
