@@ -11,7 +11,9 @@ Nesta aplicação é possivel consumir a API restFull da marvel onde nela obtemo
 
 ## Aplicação em produção
 
-[`Clique aqui para acessar `](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)
+[`Clique aqui para acessar `](http://desafio-comics.herokuapp.com/)
+link: 
+http://desafio-comics.herokuapp.com/
 
 ## Iniciando o projeto
 
@@ -61,7 +63,7 @@ Além da estrutura padrão do nextJS o projeto foi organizado da forma padrão c
 
 ## Deploy
 
-Para o deploy em produção da aplicação foi utlizado o [`Vercel`](https://vercel.com/),  uma ferramenta gratuita e com grandes recursos, sobre ele recomendo a leitura desse artigo: [`Artigo`](https://medium.com/cwi-software/nextjs-%C3%A9-o-futuro-do-front-11ed7a01cc40)
+Para o deploy em produção da aplicação foi utlizado o [`Heroku`](https://www.heroku.com/),  uma ferramenta gratuita e com grandes recursos, sobre ele recomendo a leitura desse artigo: [`Artigo`](https://bityli.com/zFpBh)
 
 ## Bibliotecas utilizadas 
 
