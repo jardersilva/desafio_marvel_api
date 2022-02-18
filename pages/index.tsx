@@ -58,7 +58,9 @@ const Home: NextPage = () => {
 
         if (localStorage.getItem("@marvel_app/favoritos") === null) {
         } else {
-          favoritos = JSON.parse(localStorage.getItem("@marvel_app/favoritos"));
+          favoritos = JSON.parse(
+            localStorage.getItem("@marvel_app/favoritos") || "{}"
+          );
         }
         setFavorit(favoritos);
         setLoading(false);
@@ -88,13 +90,17 @@ const Home: NextPage = () => {
 
     if (localStorage.getItem("@marvel_app/favoritos") === null) {
     } else {
-      favoritos = JSON.parse(localStorage.getItem("@marvel_app/favoritos"));
+      favoritos = JSON.parse(
+        localStorage.getItem("@marvel_app/favoritos") || "{}"
+      );
     }
 
     favoritos.push(iten);
 
     localStorage.setItem("@marvel_app/favoritos", JSON.stringify(favoritos));
-    setFavorit(JSON.parse(localStorage.getItem("@marvel_app/favoritos")));
+    setFavorit(
+      JSON.parse(localStorage.getItem("@marvel_app/favoritos") || "{}")
+    );
     //console.log(localStorage.getItem("@marvel_app/favorito"));
   };
 
@@ -103,7 +109,9 @@ const Home: NextPage = () => {
 
     if (localStorage.getItem("@marvel_app/favoritos") === null) {
     } else {
-      favoritos = JSON.parse(localStorage.getItem("@marvel_app/favoritos"));
+      favoritos = JSON.parse(
+        localStorage.getItem("@marvel_app/favoritos") || "{}"
+      );
     }
 
     for (var i = 0; i < favoritos.length; i++) {
@@ -113,7 +121,9 @@ const Home: NextPage = () => {
     }
 
     localStorage.setItem("@marvel_app/favoritos", JSON.stringify(favoritos));
-    setFavorit(JSON.parse(localStorage.getItem("@marvel_app/favoritos")));
+    setFavorit(
+      JSON.parse(localStorage.getItem("@marvel_app/favoritos") || "{}")
+    );
     //console.log(localStorage.getItem("@marvel_app/favorito"));
   };
 

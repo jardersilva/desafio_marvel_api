@@ -31,7 +31,9 @@ export function BarTitle() {
 
     if (localStorage.getItem("@marvel_app/favoritos") === null) {
     } else {
-      favoritos = JSON.parse(localStorage.getItem("@marvel_app/favoritos"));
+      favoritos = JSON.parse(
+        localStorage.getItem("@marvel_app/favoritos") || "{}"
+      );
     }
 
     for (var i = 0; i < favoritos.length; i++) {
