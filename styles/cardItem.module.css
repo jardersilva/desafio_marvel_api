@@ -13,5 +13,24 @@
 }
 
 .title{
-  color: white
+  color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;    /* fallback */
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.actions {
+  background-color: rgba(255, 255, 255, 0.1);
+  justify-content: space-between;
+}
+
+.actionsLabel {
+  color:white;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.actionsIcon {
+  color:white;
 }

@@ -30,7 +30,6 @@ export function SearchBar(props: Propriedades) {
           uma busca e navegue pelo titulo desejado, divirta-se
         </Typography>
         <Paper
-          component="form"
           sx={{
             p: "2px 4px",
             display: "flex",

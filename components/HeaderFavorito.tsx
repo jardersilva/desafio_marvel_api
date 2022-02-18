@@ -6,7 +6,7 @@ import Toolbar from "@mui/material/Toolbar";
 import styles from "./../styles/header.module.css";
 import logo from "./../assets/logo.png";
 import Box from "@mui/material/Box";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import HomeIcon from "@mui/icons-material/Home";
 import Button from "@mui/material/Button";
 import Link from "next/link";
 
@@ -21,9 +21,9 @@ export function Header(props: Propriedade) {
         <Image src={logo} alt="logo marvel" width={100} height={40} />
         <Box sx={{ flexGrow: 1 }} />
 
-        <Link href="/favoritos">
-          <Button className={styles.botao} startIcon={<FavoriteIcon />}>
-            Favoritos
+        <Link href="/">
+          <Button className={styles.botao} startIcon={<HomeIcon />}>
+            Home
           </Button>
         </Link>
       </Toolbar>
