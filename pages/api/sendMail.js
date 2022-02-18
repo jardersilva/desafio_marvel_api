@@ -20,7 +20,7 @@ export default function handler(req, res) {
       });
 
       var emailASerEnviado = {
-        from: "pamf@jardersilva.com.br",
+        from: "comics@jardersilva.com.br",
         to: body.email,
         subject: "Desafio comics Jarder Silva",
         html: body.body,
