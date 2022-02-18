@@ -14,8 +14,8 @@ export default function handler(req, res) {
         host: "smtp.hostinger.com",
         port: 465,
         auth: {
-          user: "pamf@jardersilva.com.br",
-          pass: "05jjaAV1",
+          user: "comics@jardersilva.com.br",
+          pass: "05jjaAV@1",
         },
       });
 
